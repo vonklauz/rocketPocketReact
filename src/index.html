@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/index.css">
+	<title> Title </title>
+</head>
+
+<body>
+	<header class="shadow">
+		<nav class="hamburger-menu">
+			<input id="menu__toggle" type="checkbox" />
+			<label class="menu__btn" for="menu__toggle">
+				<span></span>
+			</label>
+			<ul class="menu__box">
+				<li><a class="menu__item" href="#">Объекты</a></li>
+				<li><a class="menu__item" href="#">Финансовый план</a></li>
+				<li><a class="menu__item" href="#">Модель продаж</a></li>
+				<li><a class="menu__item" href="#">Консолидация</a></li>
+				<li><a class="menu__item" href="#">Личный кабинет</a></li>
+			</ul>
+		</nav>
+		<a href="#" class="header__logo">
+			<img src="img/Logo.svg" alt="RocketPocket by IT-Finance Instrument">
+		</a>
+		<nav class="header__menu">
+			<ul class="header__menu__list">
+				<li><a href="#objects" class="header__menu__list__point">Объекты</a></li>
+				<li><a href="#fin_plan" class="header__menu__list__point">Финансовый план</a></li>
+				<li><a href="#sales_model" class="header__menu__list__point">Модель продаж</a></li>
+				<li><a href="#consolidate" class="header__menu__list__point">Консолидация</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div class="objects-page">
+			<h1>Информация об объекте</h1>
+			<section class="objects-page__half" id="firstHalf">
+				<form action="" class="objects-page__form">
+					<div class="objects-page__form__half">
+
+						<div class="objects-page__form__input-wrapper">
+							<label for="objectName">Название объекта<span class="required_to_fill">*</span> :</label>
+							<input type="text" class="app_input objects-page__form__input" id="objectName">
+						</div>
+
+						<div class="objects-page__form__input-wrapper">
+							<label for="objectName">Сметная стоимость объекта<span class="required_to_fill">*</span> :</label>
+							<input type="text" class="app_input objects-page__form__input" id="objectEstimate">
+						</div>
+
+						<div class="objects-page__form__input-wrapper">
+							<label for="objectName">Объём м<sup>2</sup> к реализации<span class="required_to_fill">*</span> :</label>
+							<input type="text" class="app_input objects-page__form__input" id="objectArea">
+						</div>
+
+						<ul class="objects-page__form__estate-types-list">
+							<p>В том числе (м<sup>2</sup>)<span class="required_to_fill">*</span> :</p>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Квартиры:</label>
+								<input type="text" class="app_input objects-page__form__input" id="flatsSquare">
+							</li>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Офисы:</label>
+								<input type="text" class="app_input objects-page__form__input" id="officesSquare">
+							</li>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Торговые площади:</label>
+								<input type="text" class="app_input objects-page__form__input" id="tradeSquare">
+							</li>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Складские помещения:</label>
+								<input type="text" class="app_input objects-page__form__input" id="storagesSquare">
+							</li>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Парковка:</label>
+								<input type="text" class="app_input objects-page__form__input" id="parkingSquare">
+							</li>
+						</ul>
+					</div>
+					<div class="objects-page__form__half">
+						<textarea name="" id="objectsPageTextArea" class="app_input" cols="30" rows="10" placeholder="Подробное описание объекта" maxlength=1000></textarea>
+						<small id="areaSmall">0/1000</small>
+					</div>
+				</form>
+				<button class="app_button big_button light_blue_button" id="objectPassportNextStepButton">Далее</button>
+			</section>
+			<section class="objects-page__half" id="secondHalf">
+				<div class="objects-page__form__input-wrapper centered-content" id="m2OwnCostInputWrapper">
+					<label for="objectName">Себестоимость 1 м<sup>2</sup> без(!) затрат на привлечение финансовых ресурсов</label>
+					<input type="text" class="app_input objects-page__form__input" id="m2OwnCostInput" disabled>
+				</div>
+				<form action="" class="objects-page__form">
+					<div class="objects-page__form__half flex-end_half">
+						<ul class="objects-page__form__estate-types-list">
+							<p>Рентабельность, %</p>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Квартиры:</label>
+								<input type="text" class="app_input objects-page__form__input" id="flatsSquare">
+							</li>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Офисы:</label>
+								<input type="text" class="app_input objects-page__form__input" id="officesSquare">
+							</li>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Торг. площади:</label>
+								<input type="text" class="app_input objects-page__form__input" id="tradeSquare">
+							</li>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Склад. помещения:</label>
+								<input type="text" class="app_input objects-page__form__input" id="storagesSquare">
+							</li>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Парковка:</label>
+								<input type="text" class="app_input objects-page__form__input" id="parkingSquare">
+							</li>
+							<li class="objects-page__form__input-wrapper"><button class="app_button small_button simple_button" id="countPriceButton">Рассчитать</button></li>
+						</ul>
+					</div>
+					<div class="objects-page__form__half">
+						<ul class="objects-page__form__estate-types-list">
+							<p>Цена реализации 1 м<sup>2</sup></p>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Квартиры:</label>
+								<input type="text" class="app_input objects-page__form__input" id="flatsSquare" disabled>
+							</li>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Офисы:</label>
+								<input type="text" class="app_input objects-page__form__input" id="officesSquare" disabled>
+							</li>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Торг. площади:</label>
+								<input type="text" class="app_input objects-page__form__input" id="tradeSquare" disabled>
+							</li>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Склад. помещения:</label>
+								<input type="text" class="app_input objects-page__form__input" id="storagesSquare" disabled>
+							</li>
+							<li class="objects-page__form__input-wrapper">
+								<label for="objectName">Парковка:</label>
+								<input type="text" class="app_input objects-page__form__input" id="parkingSquare" disabled>
+							</li>
+						</ul>
+					</div>
+				</form>
+				<div class="objects-page__form__input-wrapper centered-content" id="totalRevenueWrapper">
+					<label for="objectName">Бюджет выручки без затрат на привлечение финансовых ресурсов</label>
+					<input type="text" class="app_input objects-page__form__input" id="totalRevenue" disabled>
+				</div>
+				<button class="app_button big_button light_blue_button" id="volumesOfCashSaveButton">Сохранить новый объект</button>
+			</section>
+		</div>
+		<div class="financial-plan-page">
+			<h1>Объём и источники финансирования проекта (план)</h1>
+			<div class="fin-plan__create-variant-menu">
+				<select name="" id="" class="app_input app_select">
+					<option value="null">
+						Нет сохранённых объектов
+					</option>
+				</select>
+				<select name="" id="" class="app_input app_select">
+					<option value="null">
+						Нет сохранённых вариантов финансирования
+					</option>
+				</select>
+				<button class="app_button simple_button">Задать новый вариант</button>
+				<button class="app_button delete_button">Удалить вариант</button>
+			</div>
+			<form action="" class="fin-plan__create-variant-form">
+				<div class="create-variant-form__sum-of-financing-wrapper">
+					<label for="">Общий объём финансирования</label>
+					<input type="text" class="app_input">
+				</div>
+				<div class="create-variant-form__input-wrapper">
+					<label for="">Собственные средства</label>
+					<input type="text" class="app_input">
+					<small>% от общего объёма</small>
+				</div>
+				<div class="create-variant-form__input-wrapper">
+					<label for="">Кредит банка под залог</label>
+					<input type="text" class="app_input">
+					<small>% от общего объёма</small>
+				</div>
+				<div class="create-variant-form__input-wrapper">
+					<label for="">Кредит банка / эскроу-ресурс</label>
+					<input type="text" class="app_input">
+					<small>% от общего объёма</small>
+				</div>
+				<div class="create-variant-form__input-wrapper">
+					<label for="">Инвестор категории "А"</label>
+					<input type="text" class="app_input">
+					<small>% от общего объёма</small>
+				</div>
+				<div class="create-variant-form__input-wrapper">
+					<label for="">Инвестор категории "В"</label>
+					<input type="text" class="app_input">
+					<small>% от общего объёма</small>
+				</div>
+				<div class="create-variant-form__input-wrapper">
+					<label for="">Дефицит ресурсов</label>
+					<input type="text" class="app_input">
+					<small>% от общего объёма</small>
+				</div>
+			</form>
+		</div>
+	</main>
+	<footer>
+		<p>&#169; 2019 IT-Finance Instrument.</p>
+		<p><small>Версия 0.9 (Beta).</small></p>
+	</footer>
+</body></html>

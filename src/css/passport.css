@@ -1,0 +1,186 @@
+.objects-page__half,
+#m2OwnCostInput,
+#totalRevenue {
+	text-align: center;
+}
+
+.objects-page__form {
+	margin-top: 40px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+
+.objects-page__form,
+#m2OwnCostInputWrapper,
+#totalRevenueWrapper {
+	font-weight: 550;
+}
+
+.objects-page__form__half {
+	width: 50%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	padding: 0px 7%;
+}
+
+.flex-end_half {
+	-webkit-box-align: end;
+	-ms-flex-align: end;
+	align-items: flex-end;
+}
+
+#secondHalf {
+	margin-top: 15px;
+}
+
+.objects-page__form__input-wrapper {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+}
+
+.centered-content {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+#objectName {
+	width: 100%;
+}
+
+.objects-page__form__estate-types-list,
+.objects-page__form small {
+	text-align: left;
+}
+
+.objects-page__form__estate-types-list,
+.objects-page__form__input-wrapper,
+#countPriceButton {
+	margin-top: 15px;
+}
+
+.objects-page__form__estate-types-list p {
+	padding: 10px 0px;
+}
+
+.objects-page__form__input-wrapper input,
+.objects-page__form textarea {
+	margin-top: 5px;
+}
+
+.zero-marginTop-block {
+	margin-top: 0px;
+}
+
+#objectPassportNextStepButton,
+#volumesOfCashSaveButton {
+	margin-top: 20px;
+}
+
+#m2OwnCostInputWrapper {
+	color: rgb(34, 193, 219);
+}
+
+#totalRevenueWrapper {
+	color: rgb(0, 125, 52);
+}
+
+@media (max-width: 700px) {
+	#firstHalf .objects-page__form {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+
+	#firstHalf .objects-page__form__half {
+		width: 93%;
+	}
+
+	#firstHalf .objects-page__form__input-wrapper,
+	#firstHalf .objects-page__form__estate-types-list,
+	#firstHalf .objects-page__form__input-wrapper input,
+	.objects-page__form textarea {
+		width: 75%;
+	}
+
+	.objects-page__form input {
+		text-align: center;
+	}
+
+	.objects-page__form textarea {
+		margin-top: 15px;
+	}
+
+	.objects-page__form__estate-types-list {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+	.objects-page__form__input-wrapper,
+	.objects-page__form__half,
+	.flex-end_half {
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+	.objects-page__form__half,
+	.flex-end_half {
+		padding: 0px 3%;
+	}
+}
+
+@media(max-width: 500px) {
+
+	.objects-page__form__half,
+	#m2OwnCostInputWrapper,
+	#totalRevenueWrapper {
+		letter-spacing: 0;
+	}
+	
+	.objects-page__form__half,
+	.flex-end_half {
+		padding: 0;
+	}
+	
+	#firstHalf .objects-page__form__half {
+		width: 100%;
+	}
+	
+	#firstHalf .objects-page__form__input-wrapper,
+	#firstHalf .objects-page__form__estate-types-list,
+	#firstHalf .objects-page__form__input-wrapper input,
+	.objects-page__form textarea {
+		width: 85%;
+	}
+	
+	#secondHalf .objects-page__form__estate-types-list input {
+		width: 70%;
+	}
+}

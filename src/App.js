@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Fragment, Component} from 'react';
 import './App.css';
+import {connect} from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+import {loadObjects} from './actions/actionCreator';
+
+class App extends Component {
+	
+	constructor(props) {
+		super(props)
+	}
+	
+	componentDidMount = () => {
+		const {loadObjects} = this.props;
+		loadObjects(JSON.parse(localStorage.getItem('savedState')));
+	}
+	
+	render() {
+		const {children} = this.props;
+		return (
+			<Fragment>
+				<Header/>
+				<main>
+					{children}
+				</main>
+				<Footer/>
+			</Fragment>
+		);
+	}
 }
 
-export default App;
+export {App};
+export default connect(state =>({
+	loadedObjects: state.loadedObjects,
+}),{loadObjects})(App);

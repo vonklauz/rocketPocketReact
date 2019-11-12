@@ -1,0 +1,168 @@
+html {
+	font-family: 'Lato', sans-serif;
+	color: rgb(28, 32, 51);
+}
+
+main {
+	margin-top: 90px;
+	min-height: calc(100vh - 150px);
+}
+
+.page_header {
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.shadow {
+	-webkit-box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, .1);
+	box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, .1);
+}
+
+.app_input,
+.app_button {
+	letter-spacing: 1px;
+	background: #fff;
+	border: none;
+	border-radius: 15px;
+	-webkit-box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, .1);
+	box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, .1);
+}
+
+.app_button,
+.app_select {
+	cursor: pointer;
+}
+
+.app_select {
+	letter-spacing: 0px;
+	text-align-last: center;
+}
+
+.big_button {
+	padding: 10px;
+	width: 300px;
+}
+
+.small_button {
+	padding: 5px;
+}
+
+.light_blue_button {
+	background: -webkit-linear-gradient(255deg, rgba(34, 193, 219, .5), rgba(34, 193, 219, .4));
+	background: -o-linear-gradient(255deg, rgba(34, 193, 219, .5), rgba(34, 193, 219, .4));
+	background: linear-gradient(195deg, rgba(34, 193, 219, .5), rgba(34, 193, 219, .4));
+}
+
+.light_blue_button:hover {
+	-webkit-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
+	-webkit-box-shadow: 0px 1px 10px 1px rgba(34, 193, 219, .6);
+	box-shadow: 0px 1px 10px 1px rgba(34, 193, 219, .6);
+}
+
+.delete_button {
+	background: -webkit-linear-gradient(45deg, rgba(200, 0, 0, 0.6), rgba(173, 0, 0, 0.8));
+	background: -o-linear-gradient(45deg, rgba(200, 0, 0, 0.6), rgba(173, 0, 0, 0.8));
+	background: linear-gradient(45deg, rgba(200, 0, 0, 0.6), rgba(173, 0, 0, 0.8));
+}
+
+.delete_button:hover {
+	-webkit-box-shadow: 0px 1px 10px 1px rgba(173, 0, 0, 0.6);
+	box-shadow: 0px 1px 10px 1px rgba(173, 0, 0, 0.6);
+	-webkit-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
+}
+
+.app_input:hover,
+.app_input:focus {
+	-webkit-box-shadow: 0px 1px 10px 1px rgba(34, 193, 219, .5);
+	box-shadow: 0px 1px 10px 1px rgba(34, 193, 219, .5);
+	-webkit-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
+	outline: none;
+}
+
+.required_to_fill {
+	color: red;
+}
+
+.light_blue_color {
+	color: rgba(34, 193, 219, 1);
+}
+
+@media(min-width: 1000px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 999px) {
+	html {
+		font-size: 15px;
+	}
+
+	.big_button {
+		width: 280px;
+	}
+}
+
+@media (max-width: 767px) {
+	html {
+		font-size: 14px;
+	}
+
+	h1 {
+		letter-spacing: 0px;
+		text-transform: none;
+	}
+
+	.big_button {
+		width: 250px;
+	}
+}
+
+@media (max-width: 500px) {
+
+	.big_button {
+		width: 220px;
+	}
+}
+
+
+/*Здесь общие стили для классов из разных частей приложения*/
+
+.header__menu__list,
+.objects-page__form__estate-types-list {
+	list-style-type: none;
+}
+
+.simple_button:hover,
+.header__menu__list__point:hover,
+.menu__item:hover,
+.chosen_menu_point {
+	color: #fff !important;
+	background: -webkit-linear-gradient(255deg, rgba(34, 193, 219, .5), rgba(34, 193, 219, .6));
+	background: -o-linear-gradient(255deg, rgba(34, 193, 219, .5), rgba(34, 193, 219, .6));
+	background: linear-gradient(195deg, rgba(34, 193, 219, .5), rgba(34, 193, 219, .6));
+}
+
+.create-variant-form__sum-of-financing-wrapper input,
+.objects-page__form__input-wrapper input,
+.objects-page__form textarea,
+.create-variant-form__input-wrapper input {
+	padding: 5px 10px;
+}
+
+.objects-page__form,
+#m2OwnCostInputWrapper,
+#totalRevenueWrapper,
+.create-variant-form__input-wrapper label,
+small,
+input,
+.create-variant-form__sum-of-financing-wrapper {
+	letter-spacing: 1px;
+}

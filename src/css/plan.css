@@ -1,0 +1,304 @@
+.fin-plan__create-variant-menu,
+.fin-plan__create-variant-form,
+.create-variant-form__input-wrapper,
+.create-variant-form__sum-of-financing-wrapper,
+.fin-plan-page_section {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.fin-plan__create-variant-menu {
+	width: 100%;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+}
+
+.fin-plan__create-variant-menu > * {
+	width: 250px;
+	padding: 10px;
+}
+
+.fin-plan__create-variant-form,
+.fin-plan-page_section {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.create-variant-form__sum-of-financing-wrapper,
+.create-variant-form__input-wrapper,
+.fin-plan__create-variant-form .app_button {
+	margin-top: 40px;
+}
+
+.create-variant-form__sum-of-financing-wrapper,
+.create-variant-form__input-wrapper {
+	width: 100%;
+}
+
+.create-variant-form__input-wrapper {
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+
+.create-variant-form__input-wrapper label,
+.percents-of-totalValue,
+input {
+	text-align: center;
+}
+
+.create-variant-form__input-wrapper label,
+.percents-of-totalValue {
+	width: 33%;
+}
+
+.create-variant-form__input-wrapper label {
+	text-transform: uppercase;
+	font-weight: 550;
+}
+
+.create-variant-form__sum-of-financing-wrapper input,
+.create-variant-form__input-wrapper input {
+	font-weight: 650;
+	font-size: 1.2em;
+}
+
+.create-variant-form__input-wrapper input {
+	width: 20%;
+}
+
+.create-variant-form__sum-of-financing-wrapper {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	text-transform: uppercase;
+	font-weight: 550;
+	color: rgba(34, 193, 219, 1);
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.create-variant-form__sum-of-financing-wrapper input {
+	margin-top: 5px;
+	width: 25%;
+}
+
+
+.deficite-of-resources_input {
+	color: red;
+}
+
+.deficite-of-resources_input:hover {
+	-webkit-box-shadow: 0px 1px 10px 1px red;
+	box-shadow: 0px 1px 10px 1px red;
+	-webkit-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
+}
+
+.chart-ui_wrapper {
+	text-align: center;
+}
+
+.chart-ui_input-wrapper {
+	margin-top: 5px;
+}
+
+.chart-ui_input-wrapper label {
+	margin-left: 15px;
+}
+
+.chart-ui_element {
+	padding: 5px 10px;
+}
+
+.chart-ui_select {
+	text-align-last: center;
+	cursor: pointer;
+}
+
+.chart-ui_small-input {
+	width: 60px;
+}
+
+.fin-plan_page_chart_and_menu_wrapper {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+}
+
+.fin-plan_page_chart {
+	position: relative;
+	width: 75%;
+	-webkit-box-ordinal-group: 2;
+	-ms-flex-order: 1;
+	order: 1;
+}
+
+.fin-plan_page_chart_menu {
+	width: 20%;
+}
+
+.fin-plan_page_chart,
+.fin-plan_page_chart_menu,
+.app_table {
+	-webkit-box-shadow: 1px 0px 10px 1px rgba(0, 0, 0, .1);
+	box-shadow: 1px 0px 10px 1px rgba(0, 0, 0, .1);
+	border-radius: 20px;
+}
+
+.fin-plan_page_chart_menu,
+.fin-plan_page_chart_menu div {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	text-align: center;
+}
+
+.fin-plan_page_chart_menu div input:hover {
+	-webkit-box-shadow: 1px 0px 10px 1px rgba(0, 0, 0, .1);
+	box-shadow: 1px 0px 10px 1px rgba(0, 0, 0, .1);
+}
+
+.ownFundsInput {
+	background: rgba(255, 99, 132, 0.2)
+}
+
+.bankCreditInput {
+	background: rgba(54, 162, 235, 0.2);
+}
+
+.escrowCreditInput {
+	background: rgba(255, 206, 86, 0.2);
+}
+
+.investorAInput {
+	background: rgba(125, 192, 192, 0.2);
+}
+
+.investorBInput {
+	background: rgba(153, 102, 255, 0.2);
+}
+
+.deficiteInput {
+	background: rgba(240, 52, 52, 0.8);
+}
+
+.revenue_input {
+	background: rgba(99, 199, 99, .5);
+}
+
+.available-escrow_input {
+	background: rgba(99, 99, 199, .5);
+}
+
+.app_table,
+.app_table_small{
+	table-layout: fixed;
+	border-radius: 5px;
+	border-collapse: collapse;
+}
+
+.app_table {
+	width: 90%;
+}
+
+.app_table_small {
+	width: 50%;
+}
+
+.add_cash_button {
+	width: 75px;
+}
+
+.app_table_td {
+	border: 1px solid rgba(0, 0, 0, .1);
+	padding: 2px 0px;
+}
+
+.centered-td-content {
+	text-align: center;
+}
+
+.td_input {
+	border: none;
+	text-align: center;
+}
+
+@media (max-width: 1100px) {
+	.fin-plan__create-variant-menu {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+	.fin-plan__create-variant-menu > * {
+		margin-top: 20px
+	}
+
+	.fin-plan__create-variant-menu .app_input:first-of-type {
+		margin-top: 0;
+	}
+}
+
+@media (max-width: 850px) {
+	.create-variant-form__input-wrapper {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+	.create-variant-form__input-wrapper label,
+	.percents-of-totalValue {
+		width: 100%;
+	}
+
+	.create-variant-form__sum-of-financing-wrapper input {
+		width: 65%;
+	}
+
+	.create-variant-form__input-wrapper input {
+		width: 50%;
+	}
+}
+
+@media (max-width: 50px) {
+	.create-variant-form__sum-of-financing-wrapper input {
+		width: 75%;
+	}
+
+	.create-variant-form__input-wrapper input {
+		width: 60%;
+	}
+}
