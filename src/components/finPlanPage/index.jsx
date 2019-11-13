@@ -959,7 +959,7 @@ class FinPlanComponent extends Component {
 						style={{marginTop: '20px'}} 
 						className='app_button big_button light_blue_button' 
 						onClick={ () => {
-							this.createChart(startOfBuildingMonth, startOfBuildingYear, endOfBuildingMonth, endOfBuildingYear, 'buildingPeriods'); 
+							this.createChart(startOfBuildingMonth, +startOfBuildingYear, endOfBuildingMonth, +endOfBuildingYear, 'buildingPeriods'); 
 							}
 						}
 					>
@@ -1034,7 +1034,7 @@ class FinPlanComponent extends Component {
 							style={{marginTop: '20px'}} 
 							className='app_button big_button light_blue_button' 
 							onClick={ () => {
-								this.createChart(startOfSalesMonth, startOfSalesYear, endOfSalesMonth, endOfSalesYear, 'periodsOfSalesArr'); 
+								this.createChart(startOfSalesMonth, +startOfSalesYear, endOfSalesMonth, +endOfSalesYear, 'periodsOfSalesArr'); 
 								}
 							}
 						>
