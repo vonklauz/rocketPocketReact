@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Возможности приложения:
 
-## Available Scripts
+-Создание объекта строительства:
+	-задание сметы, названия объекта, общей площади строительства и по отдельным типам недвижимости
+	-определение наценки по отдельным типам недвижимости;
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+-Создание вариантов финансирования у объекта строительства:
+	-задание названия варианта
+	-указание источников финансирования проекта с учётом, если есть, дефицита
+	-создание периода строительства, графика затрат в периоде строительства по разным источникам финансирования
+	-определение стомости привлечённых ресурсов и процентных ставок по ним (банковские кредиты, вложения инвесторов и т.д.)
+	-коррекция себестоимости и цены реализации объекта строительства на основании выявленной стоимости привлечённых ресурсов
+	-создание периода и графика продаж объекта, построение продаж в авто/ручном/смешанном режиме
+	-построение консолидированного графика продаж и трат, определение дефицита/профицита финансирования как помесячно, так и нарастающим итогом;
+	
+Порядок пользования:
+  Поскольку приложение в состоянии бета-версии, порядок пользования может показаться неочевидным.
+  
+  1) Для начала, перейдите на страницу "Объекты" (при заходе в приложение в сразу оказываетесь на ней). Приступите к созданию объекта строительства, а после - переходите на страницу "Финансовый план". 
+  
+  2) Выберите нужный объект строительства и нажмите на кнопку "Задать новый вариант". Укажите необходимые источники финансирования, допускается дефицит оного.
+  
+  3) Укажите период строительства объекта и постройте график затрат.
+  
+  4) Определите стоимость привлечённых ресурсов, указав процентные ставки в соответствующей таблице.
+  
+  5) Установите наценку в таблице коррекции себестоимости и цены реализации.
+  
+  6) Задайте период продаж, доступный эскроу-ресурс (https://fincult.info/article/scheta-eskrou-chto-eto-i-zachem-oni-nuzhny/) в % от продаж (0-100).
+  
+  7) Постройте план продаж вручную, автоматически или скомбинируйте оба подхода.
+  
+  8) У эскроу-кредита плавающая процентная ставка - в блоке слева от консолидированного графика укажите процент продаж, необходимый для снижения ставки по эскроу-кредиту и, собственно, шаг снижения данной ставки.
+  
+  9) Кнопка "обновить" под элементами из пункта 8 необходима к нажатию, если стоимость привлечённых ресурсов была изменена (недостаток, что будет исправлен в следующих версиях)
+  
+  10) Ура! Вы получили хорошее дополнение к вашему бизнес плану.
+  
+ Улучшения в ближайших версиях:
+ 	-запоминание выбранного объекта и варианта при переходах по страницам приложения
+	-избавление пользователя от необходимости взаимодействия с назойливой кнопкой "обновить" из пункта 9
+	-Кое-что ещё
