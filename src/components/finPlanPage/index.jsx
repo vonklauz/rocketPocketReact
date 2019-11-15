@@ -509,7 +509,7 @@ class FinPlanComponent extends Component {
 	
 	updateCostOfAttRes = (isDynamicEscrowRate=false) => {
 		
-		const {buildingPeriods, escrowCredit, bankCredit, investorA, investorB} = this.state.variantData;
+		const {buildingPeriods, escrowCredit, bankCredit, investorA, investorB, revenue} = this.state.variantData;
 		let costOfAttractiveFinRes = 0;
 		let finalCostOfAttractiveFinRes = 0
 
@@ -653,7 +653,7 @@ class FinPlanComponent extends Component {
 		
 		this.setState({
 			variantData: newState
-		}, () => this.updateCostOfAttRes(true))
+		}, () => this.updateCostOfAttRes())
 	}
 	
 	render() {
