@@ -366,8 +366,8 @@ class FinPlanComponent extends Component {
 	
 	getInputValue = e => {
 		let newData;
-		
-		if (e.target.name.includes('Month') || e.target.name === 'chosenSource' || e.target.name === 'dateOfCost' || e.target.name === 'dateOfSales') {
+		let targetName = e.target.name;
+		if (targetName.includes('Month') || targetName === 'chosenSource' || targetName === 'dateOfCost' || targetName === 'dateOfSales') {
 			newData = e.target.value;
 		}
 		else {
@@ -375,28 +375,12 @@ class FinPlanComponent extends Component {
 		}
 		
 		const newState = update(this.state.variantData,{
-			[e.target.name]: {$set: newData}
+			[targetName]: {$set: newData}
 		});
-		
-		/*if ( e.target.name === 'interestRateReductionStep' || e.target.name === 'salesIncreaseStep') {
-			console.log(e.target.name)
-			this.setState({
-				variantData: newState
-			},() => {
-				if (this.state.variantData.interestRateReductionStep && this.state.variantData.salesIncreaseStep) {
-					const isDynamicEscrowRate = true;
-					this.updateCostOfAttRes(isDynamicEscrowRate);
-				} 
-				
-				else {
-					this.updateVariant();
-				}
-			});
-		}*/
 		
 		this.setState({
 			variantData: newState
-		}, this.updateVariant);
+		},() => targetName === 'salesIncreaseStep' || targetName === 'interestRateReductionStep' ? this.updateCostOfAttRes(true) : this.updateVariant());
 	}
 	
 	createVariant = () => {
@@ -545,14 +529,14 @@ class FinPlanComponent extends Component {
 			costOfAttractiveResources: {$set: costOfAttractiveFinRes},
 			finalCostOfAttractiveResources: {$set: finalCostOfAttractiveFinRes},
 			revenue: {
-				withCostOfAttractiveResources: {$set: costOfAttractiveFinRes + this.state.variantData.revenue.default},
+				
 				current: {$set: costOfAttractiveFinRes + +this.state.variantData.revenue.default},
 			}
 		})
 		
 		this.setState({
 			variantData: newState
-			}, () => isDynamicEscrowRate ? this.updateVariant : this.countTotalSalePrice)
+			}, () => isDynamicEscrowRate ? this.updateVariant() : this.countTotalSalePrice())
 	}
 	
 	updateEstateTypeMarkup = e => {
@@ -587,7 +571,7 @@ class FinPlanComponent extends Component {
 		const newState = update(this.state.variantData,{
 			revenue:{
 				withCostOfAttractiveResources:{$set: totalSalesPrice},
-				current: {$set: totalSalesPrice}
+				current: {$set: totalSalesPrice - revenue.changesArr.slice(-1)}
 			},
 			estateTypes: {
 				flats:{
@@ -669,7 +653,7 @@ class FinPlanComponent extends Component {
 		
 		this.setState({
 			variantData: newState
-		}, this.updateVariant)
+		}, () => this.updateCostOfAttRes(true))
 	}
 	
 	render() {
