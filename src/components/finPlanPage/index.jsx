@@ -151,7 +151,7 @@ class FinPlanComponent extends Component {
 		
 	}
 	
-	setDefaultState = (objectEstimateValue = '', area='', defaultSalesSum='', flatsArea='', officesArea='', tradeAreas='', storagesArea='', parkingArea='') => {
+	setDefaultState = (objectEstimateValue = '', area='', defaultSalesSum='', flatsArea='', officesArea='', tradeAreas='', storagesArea='', parkingArea='', flatsMarkup='', officesMarkup='', tradeMarkup='', storagesMarkup='', parkingMarkup='', notFinalRevenue='') => {
 		const {loadedObjects} = this.props;
 		
 		this.setState({
@@ -221,7 +221,7 @@ class FinPlanComponent extends Component {
 				},
 				revenue:{
 					default: defaultSalesSum,
-					withCostOfAttractiveResources:'',
+					withCostOfAttractiveResources: notFinalRevenue,
 					current:'',
 					autoSalesStep:'',
 					changesArr:[],
@@ -233,27 +233,27 @@ class FinPlanComponent extends Component {
 				estateTypes: {
 					flats:{
 						area: flatsArea,
-						markup:'',
+						markup: flatsMarkup,
 						price:''
 					},
 					offices:{
 						area: officesArea,
-						markup:'',
+						markup: officesMarkup,
 						price:''
 					},
 					tradeArea:{
 						area: tradeAreas,
-						markup:'',
+						markup: tradeMarkup,
 						price:''
 					},
 					storages:{
 						area: storagesArea,
-						markup:'',
+						markup: storagesMarkup,
 						price:''
 					},
 					parking:{
 						area: parkingArea,
-						markup:'',
+						markup: parkingMarkup,
 						price:''
 					},
 				},
@@ -293,7 +293,13 @@ class FinPlanComponent extends Component {
 					loadedObjects[e.target.value].offices.area,
 					loadedObjects[e.target.value].tradeArea.area,
 					loadedObjects[e.target.value].storages.area,
-					loadedObjects[e.target.value].parking.area
+					loadedObjects[e.target.value].parking.area,
+					loadedObjects[e.target.value].flats.markup,
+					loadedObjects[e.target.value].offices.markup,
+					loadedObjects[e.target.value].tradeArea.markup,
+					loadedObjects[e.target.value].storages.markup,
+					loadedObjects[e.target.value].parking.markup,
+					loadedObjects[e.target.value].general.revenueExcludingCostOfBorrowedResources
 				);
 			}
 		}
@@ -308,7 +314,13 @@ class FinPlanComponent extends Component {
 					loadedObjects[this.state.chosenObject].offices.area,
 					loadedObjects[this.state.chosenObject].tradeArea.area,
 					loadedObjects[this.state.chosenObject].storages.area,
-					loadedObjects[this.state.chosenObject].parking.area
+					loadedObjects[this.state.chosenObject].parking.area,
+					loadedObjects[this.state.chosenObject].flats.markup,
+					loadedObjects[this.state.chosenObject].offices.markup,
+					loadedObjects[this.state.chosenObject].tradeArea.markup,
+					loadedObjects[this.state.chosenObject].storages.markup,
+					loadedObjects[this.state.chosenObject].parking.markup,
+					loadedObjects[this.state.chosenObject].general.revenueExcludingCostOfBorrowedResources
 				);
 			}
 			
@@ -396,7 +408,13 @@ class FinPlanComponent extends Component {
 					loadedObjects[this.state.chosenObject].offices.area,
 					loadedObjects[this.state.chosenObject].tradeArea.area,
 					loadedObjects[this.state.chosenObject].storages.area,
-					loadedObjects[this.state.chosenObject].parking.area
+					loadedObjects[this.state.chosenObject].parking.area,
+					loadedObjects[this.state.chosenObject].flats.markup,
+					loadedObjects[this.state.chosenObject].offices.markup,
+					loadedObjects[this.state.chosenObject].tradeArea.markup,
+					loadedObjects[this.state.chosenObject].storages.markup,
+					loadedObjects[this.state.chosenObject].parking.markup,
+					loadedObjects[this.state.chosenObject].general.revenueExcludingCostOfBorrowedResources
 				);
 		this.setState({
 			creatingVariant: true,
@@ -404,8 +422,6 @@ class FinPlanComponent extends Component {
 	}
 	
 	saveVariant = e => {
-		/*e.preventDefault();*/
-		
 		const {loadedObjects, updateObject} = this.props;
 		const objectId = this.state.chosenObject;
 		const variantId = 'variantOfFinancing' + Math.random();
@@ -444,7 +460,13 @@ class FinPlanComponent extends Component {
 					loadedObjects[this.state.chosenObject].offices.area,
 					loadedObjects[this.state.chosenObject].tradeArea.area,
 					loadedObjects[this.state.chosenObject].storages.area,
-					loadedObjects[this.state.chosenObject].parking.area
+					loadedObjects[this.state.chosenObject].parking.area,
+					loadedObjects[this.state.chosenObject].flats.markup,
+					loadedObjects[this.state.chosenObject].offices.markup,
+					loadedObjects[this.state.chosenObject].tradeArea.markup,
+					loadedObjects[this.state.chosenObject].storages.markup,
+					loadedObjects[this.state.chosenObject].parking.markup,
+					loadedObjects[this.state.chosenObject].general.revenueExcludingCostOfBorrowedResources
 				);
 	}
 	
@@ -504,39 +526,33 @@ class FinPlanComponent extends Component {
 	updateCostOfAttRes = (isDynamicEscrowRate=false) => {
 		
 		const {buildingPeriods, escrowCredit, bankCredit, investorA, investorB} = this.state.variantData;
-		let escrowMonthPayment;
 		let costOfAttractiveFinRes = 0;
+		let finalCostOfAttractiveFinRes = 0
 
 		buildingPeriods.forEach((month,i) => {
-			isDynamicEscrowRate ? escrowMonthPayment = countDynamicEscrowRate(this.state.variantData, escrowCredit.changesArr[i], i)[0] : escrowMonthPayment = countCostOfAttractiveResources(escrowCredit.rate, escrowCredit.changesArr[i])
-			costOfAttractiveFinRes += +escrowMonthPayment + (+countCostOfAttractiveResources(bankCredit.rate, bankCredit.changesArr[i])) + (+countCostOfAttractiveResources(investorA.rate, investorA.changesArr[i])) + (+countCostOfAttractiveResources(investorB.rate, investorB.changesArr[i]))
+			
+			let bankMonthPayment = +countCostOfAttractiveResources(bankCredit.rate, bankCredit.changesArr[i]);
+			let investorAMonthPayment = +countCostOfAttractiveResources(investorA.rate, investorA.changesArr[i]);
+			let investorBMonthPayment = +countCostOfAttractiveResources(investorB.rate, investorB.changesArr[i]);
+			
+			costOfAttractiveFinRes += +countCostOfAttractiveResources(escrowCredit.rate, escrowCredit.changesArr[i]) + bankMonthPayment + investorAMonthPayment + investorBMonthPayment;
+			
+			finalCostOfAttractiveFinRes += (+countDynamicEscrowRate(this.state.variantData, escrowCredit.changesArr[i], i)[0]) + bankMonthPayment + investorAMonthPayment + investorBMonthPayment;
+			
 		})
 		
-		if(isDynamicEscrowRate) {
-			console.log(costOfAttractiveFinRes)
-			const newState = update(this.state.variantData,{
-				finalCostOfAttractiveResources: {$set: costOfAttractiveFinRes}
-			})
-			
-			this.setState({
-				variantData: newState
-			}, this.updateVariant)
-			
-		}
+		const newState = update(this.state.variantData,{
+			costOfAttractiveResources: {$set: costOfAttractiveFinRes},
+			finalCostOfAttractiveResources: {$set: finalCostOfAttractiveFinRes},
+			revenue: {
+				withCostOfAttractiveResources: {$set: costOfAttractiveFinRes + this.state.variantData.revenue.default},
+				current: {$set: costOfAttractiveFinRes + +this.state.variantData.revenue.default},
+			}
+		})
 		
-		else {
-			const newState = update(this.state.variantData,{
-				costOfAttractiveResources: {$set: costOfAttractiveFinRes},
-				revenue: {
-					withCostOfAttractiveResources: {$set: costOfAttractiveFinRes + +this.state.variantData.revenue.default},
-					current: {$set: costOfAttractiveFinRes + +this.state.variantData.revenue.default}
-				}
-			})
-		
-			this.setState({
+		this.setState({
 			variantData: newState
-			}, this.countTotalSalePrice)
-		}
+			}, () => isDynamicEscrowRate ? this.updateVariant : this.countTotalSalePrice)
 	}
 	
 	updateEstateTypeMarkup = e => {
@@ -1054,9 +1070,6 @@ class FinPlanComponent extends Component {
 							<label>Шаг снижения ставки, %</label>
 							<input className='app_input' value={interestRateReductionStep} onChange={this.getInputValue} name='interestRateReductionStep'></input>
 						</div>
-						<button className={'app_button'} style={{padding:'5px 10px'}} onClick={() => {
-								this.updateCostOfAttRes(true);
-							}}>Обновить</button>
 					</ConsolidateChartComponent>
 				</div>
 				<DeficiteTable variantData={this.state.variantData}/>
